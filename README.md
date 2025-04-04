@@ -70,7 +70,7 @@ cd gestionetudiant
 pip install -r requirements.txt
 ```
 
-3. Configurez les variables d'environnement (ou modifiez le fichier `.env`):
+3. Configurez les variables d'environnement en renommant le fichier `.env.example` en `.env` et en modifiant les valeurs si nécessaire:
 ```
 MONGODB_URI=mongodb://localhost:27017
 DB_NAME=gestion_etudiants
@@ -87,12 +87,38 @@ NOTIFICATIONS_ACTIVES=false
 
 ## Utilisation
 
-Lancez l'application:
+### Prérequis de démarrage
+Avant de lancer l'application, assurez-vous que:
+- MongoDB est installé et en cours d'exécution
+- Redis est installé et en cours d'exécution
+
+### Lancement de l'application
+1. Sur macOS ou Linux:
 ```bash
+# Activation de l'environnement virtuel
+source venv/Scripts/activate  # ou source venv/bin/activate selon votre configuration
+# Lancement de l'application
 python src/main.py
 ```
 
-Lors de la première exécution, vous serez invité à créer un utilisateur administrateur. Ensuite, vous pourrez vous connecter et utiliser les différentes fonctionnalités selon votre rôle:
+2. Sur Windows:
+```bash
+# Activation de l'environnement virtuel
+venv\Scripts\activate
+# Lancement de l'application
+python src\main.py
+```
+
+### Premier démarrage
+Lors du démarrage de l'application, vous aurez maintenant trois options:
+1. **Se connecter avec un compte existant** (si des comptes ont déjà été créés)
+2. **Créer un nouveau compte** (disponible même si des comptes existent déjà)
+3. **Quitter l'application**
+
+Lors de la toute première exécution, vous serez automatiquement invité à créer un utilisateur administrateur.
+
+### Rôles des utilisateurs
+Une fois connecté, vous pourrez utiliser les différentes fonctionnalités selon votre rôle:
 
 - **Administrateur**: Accès complet à toutes les fonctionnalités
 - **Enseignant**: Consultation des étudiants, ajout/modification des notes, accès aux statistiques
